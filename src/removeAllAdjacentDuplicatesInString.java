@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 public class removeAllAdjacentDuplicatesInString {
+    //https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/ 1047
     public String removeDuplicates(String s) {
         Stack<Character> st = new Stack();
         for (char c : s.toCharArray()) {
