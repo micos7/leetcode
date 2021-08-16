@@ -19,4 +19,18 @@ public class ReverseLinkedList {
 
         return dummy.next;
     }
+
+    public ListNode reverseList(ListNode head) {
+        //no memory
+        ListNode prev = null;
+
+        while(head != null){
+            ListNode next_node = head.next;
+            head.next = prev;
+            prev = head;
+            head = next_node;
+        }
+
+        return prev;
+    }
 }
