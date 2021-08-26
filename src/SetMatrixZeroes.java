@@ -30,38 +30,27 @@ public class SetMatrixZeroes {
             }
         }
 
-        for (int j = 1; j < n; j++) {
-            if (matrix[0][j] == 0) {
-                zeroCol(matrix, j, m, n);
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
             }
         }
 
-        for (int i = 1; i < m; i++) {
-            if (matrix[i][0] == 0) {
-                zeroRow(matrix, i, m, n);
-            }
-        }
 
         if (firstRowZero) {
-            zeroRow(matrix, 0, m, n);
+            for (int j = 0; j < n; j++) {
+                matrix[0][j] = 0;
+            }
         }
         if (firstColZero) {
-            zeroCol(matrix, 0, m, n);
+            for (int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
+            }
         }
 
 
-    }
-
-    public void zeroRow(int[][] matrix, int index, int m, int n) {
-        for (int col = 0; col < n; col++) {
-            matrix[index][col] = 0;
-        }
-    }
-
-    public void zeroCol(int[][] matrix, int index, int m, int n) {
-        for (int row = 0; row < m; row++) {
-            matrix[row][index] = 0;
-        }
     }
 
 }
