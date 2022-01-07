@@ -28,7 +28,7 @@ public class MinimumFallingPathSum {
 
         return ans;
     }
-
+    //second version
     int n;
     Integer[][] memo;
     int[][] matrix;
