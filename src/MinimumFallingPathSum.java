@@ -28,4 +28,43 @@ public class MinimumFallingPathSum {
 
         return ans;
     }
+
+    int n;
+    Integer[][] memo;
+    int[][] matrix;
+
+    public int minFallingPathSum(int[][] matrix) {
+        n = matrix.length;
+        this.matrix = matrix;
+        memo = new Integer[n][n];
+        int minSum = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            minSum = Math.min(minSum, dfs(0, i));
+        }
+        return minSum;
+    }
+
+    private int dfs(int row, int col) {
+        if (row < 0 || row >= n || col < 0 || col >= n) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (row == n - 1) {
+            return matrix[row][col];
+        }
+
+        if (memo[row][col] != null) {
+            return memo[row][col];
+        }
+
+        int bottom = dfs(row + 1, col);
+        int bottomLeft = dfs(row + 1, col - 1);
+        int bottomRight = dfs(row + 1, col + 1);
+
+        int minSum = Math.min(bottom, Math.min(bottomLeft, bottomRight));
+
+        memo[row][col] = minSum + matrix[row][col];
+
+        return memo[row][col];
+    }
 }
