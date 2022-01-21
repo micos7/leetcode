@@ -7,7 +7,7 @@ public class Permutations {
         List<List<Integer>> ans = new ArrayList<>();
         if (nums == null || nums.length == 0) {
             return ans;
-        }0
+        }
         boolean[] visited = new boolean[nums.length];
         List<Integer> permutation = new ArrayList<>();
         rec(nums, permutation, visited, ans);
