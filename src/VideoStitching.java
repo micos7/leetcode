@@ -1,5 +1,6 @@
 public class VideoStitching {
     public int videoStitching(int[][] clips, int time) {
+        //https://leetcode.com/problems/video-stitching/ 1024
         int count = 0, start = 0, end = 0;
 
         while (start < time) {
